@@ -1,0 +1,166 @@
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  background: #1a1a2e;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 1rem;
+}
+
+/* ===== CALCULATOR SHELL ===== */
+.calculator {
+  width: 100%;
+  max-width: 360px;
+  background: #16213e;
+  border-radius: 20px;
+  padding: 1.25rem;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== DISPLAY ===== */
+.display {
+  background: #0f3460;
+  border-radius: 14px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.25rem;
+  min-height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+.expression {
+  font-size: 0.95rem;
+  color: #8899aa;
+  text-align: right;
+  min-height: 1.4em;
+  word-break: break-all;
+}
+
+.current {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: right;
+  word-break: break-all;
+  line-height: 1.2;
+  transition: font-size 0.15s ease;
+}
+
+.current.shrink {
+  font-size: 1.6rem;
+}
+
+/* ===== BUTTON GRID ===== */
+.buttons {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.65rem;
+}
+
+/* ===== BASE BUTTON ===== */
+.btn {
+  font-family: inherit;
+  font-size: 1.25rem;
+  font-weight: 500;
+  border: none;
+  border-radius: 14px;
+  padding: 1rem 0;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s ease, filter 0.1s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.btn:active {
+  transform: scale(0.92);
+  filter: brightness(1.25);
+}
+
+/* ===== NUMBER BUTTONS ===== */
+.btn.number {
+  background: #1a1a40;
+  color: #eee;
+}
+
+.btn.number:hover {
+  background: #24244a;
+}
+
+/* ===== OPERATOR BUTTONS ===== */
+.btn.operator {
+  background: #e94560;
+  color: #fff;
+}
+
+.btn.operator:hover {
+  background: #d63b54;
+}
+
+/* ===== ACTION BUTTONS (C, ⌫, %, +/−) ===== */
+.btn.action {
+  background: #293b5f;
+  color: #ccd;
+}
+
+.btn.action:hover {
+  background: #344a72;
+}
+
+/* ===== EQUALS BUTTON ===== */
+.btn.equals {
+  background: #53d8a8;
+  color: #111;
+  font-weight: 700;
+}
+
+.btn.equals:hover {
+  background: #44c898;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 400px) {
+  .calculator {
+    padding: 1rem;
+    border-radius: 16px;
+  }
+
+  .btn {
+    font-size: 1.1rem;
+    padding: 0.85rem 0;
+    border-radius: 12px;
+  }
+
+  .current {
+    font-size: 2rem;
+  }
+
+  .current.shrink {
+    font-size: 1.3rem;
+  }
+
+  .buttons {
+    gap: 0.5rem;
+  }
+
+  .display {
+    padding: 0.8rem 1rem;
+    border-radius: 12px;
+    min-height: 85px;
+  }
+}
